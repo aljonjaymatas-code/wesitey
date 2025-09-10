@@ -1,0 +1,377 @@
+body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #001f3f, #004080);
+      overflow-y: auto;
+      display: block;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Canvas network background */
+    canvas {
+      position: fixed; /* stays fixed */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 0;
+      background: linear-gradient(135deg, #001f3f, #004080);
+    }
+
+    /* Main content overlay */
+    .content,
+    .about,
+    .skills,
+    .contact-section,
+    .schedule,
+    .section,
+    .albums-section,
+    .map-section {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    /* Logo */
+    .logo {
+      color: #001f3f;
+      font-weight: bold;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 97%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 10px 30px;
+      border-bottom: 2px solid #4fc3f7;
+      backdrop-filter: blur(6px);
+    }
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #001f3f;
+    }
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .navbar ul li {
+      margin-left: 20px;
+    }
+    .navbar ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #001f3f;
+      transition: color 0.3s ease;
+    }
+    .navbar ul li a:hover {
+      color: #4fc3f7;
+    }
+
+    /* Essentials layout */
+    .main-content,
+    .about,
+    .skills,
+    .contact-section {
+      min-height: calc(100vh - 62px);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Profile image */
+    .content img {
+      width: 250px;
+      border-radius: 50%;
+      margin: 20px 0;
+      object-fit: cover;
+      border: 4px solid #4fc3f7;
+      box-shadow: 0 0 20px rgba(79,195,247,0.7);
+    }
+
+    /* Text */
+    .content p,
+    .about p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 20px;
+      line-height: 1.5;
+      text-align: center;
+      color: #f5f5f5;
+    }
+
+    /* Section headers */
+    h2 {
+      font-size: 32px;
+      color: #4fc3f7;
+      text-shadow: 0 0 10px rgba(79,195,247,0.7);
+      margin-bottom: 20px;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .skill-box {
+      background: rgba(53, 70, 95, 0.8);
+      padding: 40px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(79,195,247,0.4);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .skill-box:hover {
+      background: rgba(29, 87, 120, 0.9);
+      transform: translateY(-5px);
+      box-shadow: 0 0 18px rgba(79,195,247,0.6);
+    }
+
+    /* Contact form */
+    .contact-form {
+      display: grid;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(79,195,247,0.5);
+    }
+    .contact-form label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #4fc3f7;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 2px solid #4fc3f7;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    .contact-form button {
+      padding: 12px;
+      background: #4fc3f7;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #001f3f;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #0288d1;
+      color: white;
+    }
+
+
+    /* Schedule */
+
+/* Schedule Section – Updated for Background Fit */
+.schedule {
+    background: rgba(0, 31, 63, 0.7); /* deep navy with transparency */
+    border: 2px solid rgba(79, 195, 247, 0.6); /* soft blue accent */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    margin: 30px auto;
+    padding: 40px 20px;
+    width: 90%;
+    max-width: 800px;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+/* Schedule Table – Updated */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Table Headings */
+.schedule-table th {
+  padding: 14px 18px;
+  font-size: 20px;
+  background: rgba(79, 195, 247, 0.3); /* soft blue header */
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Table Cells */
+.schedule-table td {
+  padding: 14px 18px;
+  text-align: center;
+  background: rgba(0, 64, 128, 0.4); /* translucent navy for cells */
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+/* Row Hover */
+.schedule-table tr:hover td {
+  background: rgba(79, 195, 247, 0.15); /* subtle highlight */
+}
+
+/* Borders */
+.schedule-table th,
+.schedule-table td {
+  border-bottom: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+.schedule-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* Projects */
+
+
+.section {
+  min-height: calc(100vh - 62px);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 42px;
+  margin: 50px 0 30px;
+}
+
+.projects-grid {
+  display: flex;
+  justify-content: center; /* keeps cards in the center */
+  align-items: center;
+  flex-wrap: wrap; /* allows multiple rows if more cards */
+  gap: 30px; /* spacing between cards */
+}
+
+.project-card {
+  width: 250px; /* fixed width */
+  background: rgba(0, 31, 63, 0.6);
+  border: 2px solid rgba(79, 195, 247, 0.5);
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  color: #f5f5f5;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(79, 195, 247, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 25px rgba(79, 195, 247, 0.6);
+}
+
+
+
+
+
+/* Albums Section */
+.albums-section {
+  background: rgba(0, 31, 63, 0.6); /* semi-transparent navy */
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  margin: 40px auto;
+  max-width: 1000px;
+  color: #f5f5f5;
+}
+
+.albums-section h2,
+.albums-section h3 {
+  color: #4fc3f7;
+  text-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+  margin-bottom: 20px;
+}
+
+.photos-grid,
+.music-grid,
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.photo-box,
+.music-box,
+.video-box {
+  background: rgba(0, 31, 63, 0.4);
+  border: 2px solid rgba(79, 195, 247, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(79, 195, 247, 0.3);
+}
+
+.photo-box img,
+.video-box video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.music-box audio {
+  width: 100%;
+  outline: none;
+}
+
+/* Map Section */
+.map-section {
+  background: rgba(0, 31, 63, 0.6);
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  margin: 40px auto;
+  max-width: 1000px;
+  color: #f5f5f5;
+}
+
+.map-section h2 {
+  color: #4fc3f7;
+  text-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+  margin-bottom: 20px;
+}
+
+.map-container iframe {
+  width: 100%;
+  border: 2px solid rgba(79, 195, 247, 0.5);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(79, 195, 247, 0.3);
+}
